@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustStreamIt - Vidéos à la demande</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/assets/styles/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8 space-y-10">
+        <div class="w-full bg-[#61787F] px-4 h-32 flex items-center gap-8 rounded-md justify-center md:justify-start">
+            <img src="/src/assets/images/logo-whitout-bg.png" alt="Logo JustStreamIt" class="size-32">
+            <h1 class="text-5xl font-light text-white hidden md:block">Vidéos à la demande</h1>
+        </div>
+        <!--  Meilleur Film -->
+        <section id="best-movie" class="bg-[#61787F]/30 p-8 rounded-md space-y-4">
+            <h2 class="text-4xl font-semibold text-center md:text-start">🥇 Meilleur Film</h2>
+            <div id="best-movie-content" class="border border-[#61787F] p-4 flex gap-4 rounded-md shadow-2xl group flex-col md:flex-row">
+                <!-- Le contenu  -->
+               
+            </div>
+        </section>
+        <!--  Films les mieux notés -->
+        <section id="top-rated-movies" class="bg-[#61787F]/30 p-8 rounded-md">
+            <h2 class="text-3xl font-semibold mb-4">🔝 Films les mieux notés</h2>
+            <div id="top-rated-movies-content"
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 border border-[#61787F] p-4 rounded-md shadow-2xl">
+                <!-- Les films  -->
+            </div>
+            <button id="top-rated-show-more"
+                class="mt-4 text-sm py-1.5 px-8 bg-zinc-800 border-white border rounded-full text-white block lg:hidden">Voir
+                plus</button>
+        </section>
+
+
+        <!-- Catégorie 1 -->
+        <section id="category-1" class="bg-[#61787F]/30 p-8 rounded-md">
+            <h2 id="category-1-title" class="text-3xl font-semibold mb-4">Action</h2>
+            <div id="category-1-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Les films seront insérés par JavaScript -->
+            </div>
+            <button id="category-1-show-more" class="mt-4 text-sm py-1.5 px-8 bg-zinc-800 border-white border rounded-full text-white block lg:hidden">Voir plus</button>
+        </section>
+
+        <!-- Catégorie 2 -->
+        <section id="category-2" class="bg-[#61787F]/30 p-8 rounded-md">
+            <h2 id="category-2-title" class="text-3xl font-semibold mb-4">Biographie</h2>
+            <div id="category-2-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Les films seront insérés par JavaScript -->
+            </div>
+            <button id="category-2-show-more" class="mt-4 text-sm py-1.5 px-8 bg-zinc-800 border-white border rounded-full text-white block lg:hidden">Voir plus</button>
+        </section>
+
+
+
+        <section id="free-category" class="bg-[#61787F]/30 p-8 rounded-md">
+            <h2 id="free-category-title" class="text-3xl font-semibold mb-4"></h2>
+            <select id="category-select" class="border p-2 rounded mb-4">
+                <option value="">Sélectionner une catégorie</option>
+            </select>
+            <div id="free-category-content"
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 border border-[#61787F] p-4 rounded-md shadow-2xl">
+                <!-- Les films  -->
+            </div>
+            <button id="free-category-show-more"
+                class="mt-4 text-sm py-1.5 px-8 bg-zinc-800 border-white border rounded-full text-white block lg:hidden">Voir
+                plus</button>
+        </section>
+
+
+        <!--  Modale -->
+        <div id="movie-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+            <div id="modal-overlay" class="fixed inset-0 bg-black opacity-0 transition-opacity duration-300 ease-in-out"></div>
+                <!-- <div class=" relative bg-white p-8 max-w-80 max-h-[90%] xl:max-w-5xl xl:max-h-full mx-auto rounded-md shadow-lg z-50 border-2 border-black flex justify-center flex-col transform transition-transform duration-300 ease-in-out scale-75 opacity-0" -->
+            <div id="modal-content-wrapper" class="fixed left-[50%] top-[50%] z-50 bg-white rounded-md w-full h-full flex flex-col justify-between max-h-[90%] max-w-sm translate-x-[-50%] translate-y-[-50%] p-4 shadow-lg md:max-w-2xl transform transition-transform duration-300 ease-in-out scale-75 opacity-0 ">
+                <div id="modal-content" class="space-y-4 text-left h-full overflow-y-auto">
+                    <!-- Le contenu du film -->
+                </div>
+                <button
+                    class="close-modal-btn self-center rounded-full bg-red-500 px-20 py-2 text-white mt-4">Fermer</button>
+                <button class="close-modal-btn absolute top-1 right-1 rounded-full bg-red-500 text-white p-0.5">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+
+
+        <script src="/src/services/api.js"></script>
+        <script src="/src/components/ui.js"></script>
+        <script src="/src/components/modal.js"></script>
+        <script src="/src/main.js"></script>
+
+</body>
+
+</html>
